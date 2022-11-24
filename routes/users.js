@@ -5,6 +5,8 @@ const User = require('../models/users');
 const uid2 = require('uid2');
 const bcrypt = require('bcrypt');
 const Tweet = require('../models/tweets');
+const { checkBody } = require('../modules/checkBody');
+
 
 
 /* GET users listing. */
@@ -12,7 +14,7 @@ const Tweet = require('../models/tweets');
 //   res.send('respond with a resource');
 // });
 router.post('/signup', (req, res) => {
-  if (!checkBody(req.body, ['username', 'password'])) {
+  if (!checkBody(req.body, ['firstname','username', 'password'])) {
     res.json({ result: false, error: 'Missing or empty fields' });
     return;
   }
