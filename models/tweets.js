@@ -5,7 +5,6 @@ const tweetSchema = mongoose.Schema({
   tweet : String,
   date : Date,
   hashtag : Array,
-  
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' },
 });
 

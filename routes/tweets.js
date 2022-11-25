@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const user = require('../models/tweets');
+// const user = require('../models/tweets');
 const Tweet = require('../models/tweets');
 
 
@@ -36,13 +36,33 @@ router.post('/', (req, res) => {
 });
    
    router.delete('/:tweets', (req, res) => {
-    Tweet.deleteOne({ tweet: req.params.data_id }).then(({ deletedCount }) => {
-        tweet.find()
-        .populate('tweet')
-        .then(data => {
-          res.json({ result: deletedCount > 0, bookings });
+    // Tweet.deleteOne({ tweet: req.params.data_id }).then(({ deletedCount }) => {
+    //     // tweet.find()
+    //     // .populate('tweet')
+    //     .then(data => {
+    //       res.json({ result: deletedCount > 0, bookings });
+    //     });
+    // });
+
+    Tweet.deleteOne({ tweet: req.params.data_id }).then((data) => {
+
+        res.json(
+            {tweet:Tweet}
+        )
+
+    });
+    router.get('/tweets', (req, res) => {
+        Tweet.find().then(data => {
+            res.json({tweets})
         });
     });
+
+
+
+
+
+
+
   });
   
 
